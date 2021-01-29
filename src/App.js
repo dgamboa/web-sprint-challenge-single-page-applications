@@ -38,11 +38,23 @@ const StyledHeader = styled.header`
 
 // Initial States:
 const initialFormValues = {
-
+  name: '',
+  size: '',
+  pepperoni: false,
+  sausage: false,
+  bacon: false,
+  pineapple: false,
+  garlic: false,
+  mushrooms: false,
+  peppers: false,
+  cranberries: false,
+  instructions: '',
 }
 
 const initialFormErrors = {
-
+  name: '',
+  size: '',
+  toppings: ''
 }
 
 const initialDisabled = true;
@@ -54,13 +66,16 @@ const App = () => {
   const [disabled, setDisabled] = useState(initialDisabled);
 
   // Helper Functions
-  const inputChange = () => {
-
-  }
+  const inputChange = (name, value) => {
+    setFormValues({
+      ...formValues,
+      [name]: value
+    });
+  };
 
   const formSubmit = () => {
-    
-  }
+
+  };
 
   return (
     <div className="container">
