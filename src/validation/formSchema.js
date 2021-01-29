@@ -8,5 +8,14 @@ export default yup.object().shape({
     .min(2, 'Name needs to be at least 3 characters long'),
   size: yup
     .string()
-    .oneOf(['Small', 'Medium', 'Large'], 'Must select a pizza size')
+    .oneOf(['Small', 'Medium', 'Large'], 'Must select a pizza size'),
+  pepperoni: yup.boolean(),
+  sausage: yup.boolean(),
+  bacon: yup.boolean(),
+  pineapple: yup.boolean(),
+  garlic: yup.boolean(),
+  mushrooms: yup.boolean(),
+  peppers: yup.boolean(),
+  cranberries: yup.boolean(),
+  instructions: yup.string()
 })

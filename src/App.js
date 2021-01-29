@@ -3,6 +3,7 @@ import { Link, Route, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './components/Home';
 import Form from './components/Form';
+import Confirmation from './components/Confirmation'
 import * as yup from 'yup';
 import schema from './validation/formSchema';
 import axios from 'axios';
@@ -158,7 +159,12 @@ const App = () => {
           errors={formErrors}
         />
       </Route>
-      <Route path='/confirmation' component={Confirmation}/>
+
+      <Route path='/confirmation'>
+        <Confirmation 
+          order={orders[orders.length - 1]}
+        />
+      </Route>
     </div>
   );
 };
