@@ -1,7 +1,8 @@
 import React from "react";
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
-import pizzaHero from './Assets/Pizza.jpg';
+import Home from './components/Home';
+
 
 const StyledHeader = styled.header`
   border: 1px solid black; /* Delete */
@@ -55,10 +56,7 @@ const App = () => {
           </ul>
         </nav>
       </StyledHeader>
-      <>
-        <img src={pizzaHero} alt="Pizza"/>
-        <button></button>
-      </>
+      <Home />
     </div>
   );
 };
