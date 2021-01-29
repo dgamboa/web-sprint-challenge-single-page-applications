@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Route, useHistory } from 'react-router-dom';
+import { NavLink, Route, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './components/Home';
 import Form from './components/Form';
@@ -145,8 +145,25 @@ const App = () => {
       <StyledHeader>
         <h1>Lambda Eats</h1>
         <nav className="site-nav">
-          <Link to='/'>Home</Link>
-          <Link to='/'>Help</Link>
+          <NavLink
+            exact
+            to='/'
+            activeStyle={{
+              color: 'white',
+              backgroundColor: '#edd3d3'
+            }}
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to='/help'
+            activeStyle={{
+              color: 'white',
+              backgroundColor: '#edd3d3'
+            }}
+          >
+            Help
+          </NavLink>
         </nav>
       </StyledHeader>
 
