@@ -27,7 +27,7 @@ export default function Confirmation({ order }) {
         }
         {
           order.instructions
-            ? <li>Instructions: {order.size}</li>
+            ? <li>Instructions: {order.instructions}</li>
             : <li>No special instructions</li>
         }
         
