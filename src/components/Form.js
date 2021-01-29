@@ -24,9 +24,9 @@ export default function Form(props) {
 
       <form className='form-pizza' onSubmit={onSubmit}>
         <div className='errors'>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div>{errors.name}</div>
+          <div>{errors.size}</div>
+          <div>{errors.toppings}</div>
         </div>
 
         <div className='form-inputs'>

@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './components/Home';
 import Form from './components/Form';
+import * as yup from 'yup';
+import schema from './validation/formSchema'
 
 const StyledHeader = styled.header`
   border: 1px solid black; /* Delete */
@@ -65,8 +67,23 @@ const App = () => {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
 
+  // Submit Pizza Order Function
+  const submitNewOrder = (order) => {
+    // Execute post request
+    // If post request is successful,
+    // display the confirmation route with order details
+  };
+
+  // Validation Helper for Errors:
+  const validate = (name, value) => {
+    yup.reach(schema, name).validate(value)
+      .then(valid => setFormErrors({ ...formErrors, [name]: '' }))
+      .catch(e => setFormErrors({ ...formErrors, [name]: e.errors[0] }))
+  }
+
   // Helper Functions
   const inputChange = (name, value) => {
+    validate(name, value);
     setFormValues({
       ...formValues,
       [name]: value
@@ -74,8 +91,28 @@ const App = () => {
   };
 
   const formSubmit = () => {
-
+    const newOrder = {
+      name: formValues.name.trim(),
+      size: formValues.size,
+      pepperoni: formValues.pepperoni,
+      sausage: formValues.sausage,
+      bacon: formValues.bacon,
+      pineapple: formValues.pineapple,
+      garlic: formValues.garlic,
+      mushrooms: formValues.mushrooms,
+      peppers: formValues.peppers,
+      cranberries: formValues.cranberries,
+      instructions: formValues.instructions.trim()
+    }
+    submitNewOrder(newOrder);
   };
+
+  // Effects Hook:
+  useEffect(() => {
+    schema.isValid(formValues).then(valid => {
+      setDisabled(!valid);
+    });
+  }, [formValues])
 
   return (
     <div className="container">
