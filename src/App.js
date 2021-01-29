@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './components/Home';
@@ -36,7 +36,32 @@ const StyledHeader = styled.header`
   }
 `
 
+// Initial States:
+const initialFormValues = {
+
+}
+
+const initialFormErrors = {
+
+}
+
+const initialDisabled = true;
+
 const App = () => {
+  // State Hooks:
+  const [formValues, setFormValues] = useState(initialFormValues);
+  const [formErrors, setFormErrors] = useState(initialFormErrors);
+  const [disabled, setDisabled] = useState(initialDisabled);
+
+  // Helper Functions
+  const inputChange = () => {
+
+  }
+
+  const formSubmit = () => {
+    
+  }
+
   return (
     <div className="container">
       <StyledHeader>
@@ -49,7 +74,15 @@ const App = () => {
 
       <Route exact path='/' component={Home}/>
 
-      <Route path='/pizza' component={Form}/>
+      <Route path='/pizza'>
+        <Form
+          values={formValues}
+          change={inputChange}
+          submit={formSubmit}
+          disabled={disabled}
+          errors={formErrors}
+        />
+      </Route>
       {/* <Route path='/confirmation'/> */}
     </div>
   );
