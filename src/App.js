@@ -150,7 +150,7 @@ const App = () => {
             to='/'
             activeStyle={{
               color: 'white',
-              backgroundColor: '#edd3d3'
+              backgroundColor: '#999'
             }}
           >
             Home
@@ -159,7 +159,7 @@ const App = () => {
             to='/help'
             activeStyle={{
               color: 'white',
-              backgroundColor: '#edd3d3'
+              backgroundColor: '#999'
             }}
           >
             Help
