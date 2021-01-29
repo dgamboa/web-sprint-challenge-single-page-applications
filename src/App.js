@@ -1,6 +1,7 @@
 import React from "react";
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
+import pizzaHero from './Assets/Pizza.jpg';
 
 const StyledHeader = styled.header`
   border: 1px solid black; /* Delete */
@@ -44,15 +45,21 @@ const StyledHeader = styled.header`
 
 const App = () => {
   return (
-    <StyledHeader>
-      <h1>Lambda Eats</h1>
-      <nav className="site-nav">
-        <ul>
-          <li>Home</li>
-          <li>Help</li>
-        </ul>
-      </nav>
-    </StyledHeader>
+    <div className="container">
+      <StyledHeader>
+        <h1>Lambda Eats</h1>
+        <nav className="site-nav">
+          <ul>
+            <li>Home</li>
+            <li>Help</li>
+          </ul>
+        </nav>
+      </StyledHeader>
+      <>
+        <img src={pizzaHero} alt="Pizza"/>
+        <button></button>
+      </>
+    </div>
   );
 };
 export default App;
