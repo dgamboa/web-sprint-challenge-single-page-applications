@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './components/Home';
 
@@ -20,25 +20,17 @@ const StyledHeader = styled.header`
     border: 1px solid black; /* Delete */
     display: flex;
     align-items: center;
-    ul {
-      border: 1px solid red; /* Delete */
-      display: flex;
-      justify-content: center;
-      padding: 0;
-      width: 23rem;
-      li {
-        border: 1px solid #333;
-        display: inline-block;
-        list-style: none;
-        flex-grow: 1;
-        text-align: center;
-        line-height: 3rem;
-        font-size: 1.5rem;
-        &:hover {
-          background-color: red;
-          color: white;
-          cursor: pointer;
-        }
+    a {
+      border: 1px solid #333;
+      text-decoration: none;
+      color: black;
+      width: 12rem;
+      text-align: center;
+      line-height: 3rem;
+      font-size: 1.5rem;
+      &:hover {
+        background-color: red;
+        color: white;
       }
     }
   }
@@ -50,13 +42,15 @@ const App = () => {
       <StyledHeader>
         <h1>Lambda Eats</h1>
         <nav className="site-nav">
-          <ul>
-            <li>Home</li>
-            <li>Help</li>
-          </ul>
+          <Link to='/'>Home</Link>
+          <Link to='/'>Help</Link>
         </nav>
       </StyledHeader>
-      <Home />
+
+      <Route exact path='/' component={Home}/>
+
+      {/* <Route path='/pizza'/> */}
+      {/* <Route path='/confirmation'/> */}
     </div>
   );
 };
