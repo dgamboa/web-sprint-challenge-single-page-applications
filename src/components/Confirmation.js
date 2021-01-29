@@ -5,10 +5,8 @@ export default function Confirmation({ order }) {
     return <h3>Processing your order...</h3>
   }
 
-  // const toppings = [];
-  // for (const topping in order) {
-  //   return order[topping] ? toppings.push() : null;
-  // };
+  const toppings = Object.entries(order)
+                    .filter( pair => pair[1] === true );
   
   return (
     <div className='order-confirmation'>
@@ -18,7 +16,14 @@ export default function Confirmation({ order }) {
         <li>Name: {order.name}</li>
         <li>Size: {order.size}</li>
         {
-          // console.log(toppings)
+          toppings.map( topping => {
+            return (
+              <li>
+                {topping[0][0].toUpperCase()
+                 + topping[0].substr(1)}
+              </li>
+            )
+          })
         }
         {
           order.instructions
