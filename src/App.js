@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Route } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './components/Home';
-
+import Form from './components/Form';
 
 const StyledHeader = styled.header`
   border: 1px solid black; /* Delete */
@@ -49,7 +49,7 @@ const App = () => {
 
       <Route exact path='/' component={Home}/>
 
-      {/* <Route path='/pizza'/> */}
+      <Route path='/pizza' component={Form}/>
       {/* <Route path='/confirmation'/> */}
     </div>
   );

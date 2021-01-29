@@ -1,6 +1,7 @@
 import React from 'react';
 import pizzaHero from '../Assets/Pizza.jpg';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 const HeroBanner = styled.section`
   border: 1px solid black; /* Delete */
@@ -31,6 +32,12 @@ const HeroBanner = styled.section`
 `;
 
 export default function Home(props) {
+  const history = useHistory();
+
+  const routeToForm = () => {
+    history.push('/pizza');
+  }
+
   return (
     <HeroBanner className='hero-banner'>
       <div className="hero-container">
@@ -41,7 +48,7 @@ export default function Home(props) {
         />
         <button
           className='hero-button'
-          onClick={() => console.log('clicked!')}
+          onClick={ routeToForm }
         >
           Pizza?
         </button>
