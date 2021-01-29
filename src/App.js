@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link, Route } from 'react-router-dom';
+import { Link, Route, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import Home from './components/Home';
 import Form from './components/Form';
@@ -70,10 +70,18 @@ const App = () => {
   const [disabled, setDisabled] = useState(initialDisabled);
   const [orders, setOrders] = useState(initialOrders);
 
+  // Render Confirmation after Order Submission
+  const history = useHistory();
+
+  const routeToConfirmation = () => {
+    history.push('/confirmation');
+  }
+
   // Submit Pizza Order Function
   const submitNewOrder = (order) => {
     // Execute post request
     // If post request is successful,
+    // add the order to the orders data (here simulated as a slice of state), and
     // display the confirmation route with order details
     axios.post('https://reqres.in/api/users', order)
       .then(res => {
@@ -85,6 +93,7 @@ const App = () => {
       })
       .finally(() => {
         setFormValues(initialFormValues);
+        routeToConfirmation();
       })
   };
 
@@ -149,7 +158,7 @@ const App = () => {
           errors={formErrors}
         />
       </Route>
-      {/* <Route path='/confirmation'/> */}
+      <Route path='/confirmation' component={Confirmation}/>
     </div>
   );
 };
