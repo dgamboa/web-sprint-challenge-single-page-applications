@@ -9,23 +9,22 @@ import schema from './validation/formSchema';
 import axios from 'axios';
 
 const StyledHeader = styled.header`
-  border: 1px solid black; /* Delete */
   display: flex;
   justify-content: space-between;
   height: 8rem;
   h1 {
-    border: 1px solid black; /* Delete */
     color: red;
     font-size: 2.5rem;
     margin: auto 2rem;
     text-transform: uppercase;
   }
   nav {
-    border: 1px solid black; /* Delete */
     display: flex;
     align-items: center;
     a {
-      border: 1px solid #333;
+      border-top: 1px solid #333;
+      border-bottom: 1px solid #333;
+      border-right: 1px solid #333;
       text-decoration: none;
       color: black;
       width: 12rem;
@@ -35,6 +34,9 @@ const StyledHeader = styled.header`
       &:hover {
         background-color: red;
         color: white;
+      }
+      &:first-child {
+        border-left: 1px solid #333;
       }
     }
   }

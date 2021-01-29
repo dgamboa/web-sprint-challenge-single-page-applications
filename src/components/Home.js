@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
 
 const HeroBanner = styled.section`
-  border: 1px solid black; /* Delete */
   width: 99.9%;
   .hero-container {
     position: relative;
