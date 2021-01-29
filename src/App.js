@@ -61,19 +61,31 @@ const initialFormErrors = {
 }
 
 const initialDisabled = true;
+const initialOrders = [];
 
 const App = () => {
   // State Hooks:
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
+  const [orders, setOrders] = useState(initialOrders);
 
   // Submit Pizza Order Function
   const submitNewOrder = (order) => {
     // Execute post request
     // If post request is successful,
     // display the confirmation route with order details
-    axios.post()
+    axios.post('https://reqres.in/api/users', order)
+      .then(res => {
+        console.log(res);
+        setOrders([ ...orders, res.data ]);
+      })
+      .catch(e => {
+        console.log(e);
+      })
+      .finally(() => {
+        setFormValues(initialFormValues);
+      })
   };
 
   // Validation Helper for Errors:
