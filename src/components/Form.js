@@ -6,13 +6,16 @@ export default function Form(props) {
   const { values, change, submit, disabled, errors } = props;
 
   // Helper Functions:
-  const onChange = () => {
+  const onChange = (event) => {
+    const { name, value, checked, type } = event.target
+    const valueToChange = type === 'checkbox' ? checked : value;
+    change(name, valueToChange);
+  };
 
-  }
-
-  const onSubmit = () => {
-
-  }
+  const onSubmit = (event) => {
+    event.preventDefault();
+    submit();
+  };
 
   return (
     <div className='form-container'>
@@ -63,7 +66,7 @@ export default function Form(props) {
             <label>Pepperoni
               <input 
                 type='checkbox'
-                name='Pepperoni'
+                name='pepperoni'
                 checked={values.pepperoni}
                 onChange={onChange}
               />
@@ -72,8 +75,8 @@ export default function Form(props) {
             <label>Sausage
               <input 
                 type='checkbox'
-                name='Sausage'
-                checked={values.pepperoni}
+                name='sausage'
+                checked={values.sausage}
                 onChange={onChange}
               />
             </label>
@@ -81,7 +84,7 @@ export default function Form(props) {
             <label>Bacon
               <input 
                 type='checkbox'
-                name='Bacon'
+                name='bacon'
                 checked={values.bacon}
                 onChange={onChange}
               />
@@ -90,7 +93,7 @@ export default function Form(props) {
             <label>Pineapple
               <input 
                 type='checkbox'
-                name='Pineapple'
+                name='pineapple'
                 checked={values.pineapple}
                 onChange={onChange}
               />
@@ -99,7 +102,7 @@ export default function Form(props) {
             <label>Garlic
               <input 
                 type='checkbox'
-                name='Garlic'
+                name='garlic'
                 checked={values.garlic}
                 onChange={onChange}
               />
@@ -108,7 +111,7 @@ export default function Form(props) {
             <label>Mushrooms
               <input 
                 type='checkbox'
-                name='Mushrooms'
+                name='mushrooms'
                 checked={values.mushrooms}
                 onChange={onChange}
               />
@@ -117,7 +120,7 @@ export default function Form(props) {
             <label>Peppers
               <input 
                 type='checkbox'
-                name='Peppers'
+                name='peppers'
                 checked={values.peppers}
                 onChange={onChange}
               />
@@ -126,7 +129,7 @@ export default function Form(props) {
             <label>Cranberries
               <input 
                 type='checkbox'
-                name='Cranberries'
+                name='cranberries'
                 checked={values.cranberries}
                 onChange={onChange}
               />
